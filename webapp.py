@@ -6,13 +6,18 @@ from flask import session
 app = Flask(__name_)
 
 @app.route('/')
-def
+def home ()
+  return render_template('home.html')
 
 @app.route('/posts')
-def
+def blog()
+  return render_template('.html')
 
 @app.route('/login')
-def
+def login()
+  return github.authorize(callback=url_for('authorized', _external=True, _scheme='https'))
 
 @app.route('/logout')
-def
+def logout()
+  session.clear()
+  return render_template('message.html', message='You sucessfully logged out')
