@@ -11,7 +11,7 @@ def home ()
 
 @app.route('/posts')
 def blog()
-  return render_template('.html')
+  return render_template('posts.html')
 
 @app.route('/login')
 def login()
