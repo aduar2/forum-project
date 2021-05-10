@@ -6,14 +6,9 @@ from flask import render_template
 import pprint
 import os
 
-# This code originally from https://github.com/lepture/flask-oauthlib/blob/master/example/github.py
-# Edited by P. Conrad for SPIS 2016 to add getting Client Id and Secret from
-# environment variables, so that this will work on Heroku.
-# Edited by S. Adams for Designing Software for the Web to add comments and remove flash messaging
-
 app = Flask(__name__)
 
-app.debug = False #Change this to False for production
+app.debug = False
 #os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1' #Remove once done debugging
 
 app.secret_key = os.environ['SECRET_KEY'] #used to sign session cookies
