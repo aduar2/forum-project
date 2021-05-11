@@ -20,6 +20,18 @@ with pop up 'log in to reply' or pop up to type reply
 
 post button if logged in
 
-if brb
+
+how do you even make a button lol
+
+<a href='postPopUp" class="btn btn-success" role="button">Post</a>
+
+{% if logged_in %}
+  
+
+{% else %}
+              <a href="/logout">Logout</a>
+              {% else %}
+              <a href="/login">Login</a>
+              {% endif %}
 
 {% endblock %}
