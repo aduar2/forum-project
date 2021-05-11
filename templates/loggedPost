@@ -1,1 +1,10 @@
-at the top log out at the bottom post. log out should be in layout i think? but post is unique to this page.
+{% extends "layout.html" %}
+
+{% block title %}Posts{% endblock %}
+
+{% block content %}
+
+<p>at the top log out at the bottom post. log out should be in layout i think? but post is unique to this page.</p>
+
+
+{% endblock %}
