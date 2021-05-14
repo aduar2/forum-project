@@ -47,18 +47,18 @@ def inject_logged_in():
     return {"logged_in":('github_token' in session)}
 
 @app.route('/')
-def home ()
+def home():
   return render_template('home.html')
 
 @app.route('/posts')
-def blog()
+def blog():
   return render_template('posts.html')
 
 @app.route('/login')
-def login()
+def login():
   return github.authorize(callback=url_for('authorized', _external=True, _scheme='https'))
 
 @app.route('/logout')
-def logout()
+def logout():
   session.clear()
   return render_template('message.html', message='You sucessfully logged out')
