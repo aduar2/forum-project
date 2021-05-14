@@ -5,4 +5,4 @@ Werkzeug>=0.14
 wheel
 gunicorn
 Flask-OAuthlib
-pymongo==x.x
+pymongo==3.11.4
