@@ -68,4 +68,4 @@ def logout():
 
 @app.route('myThreads')
 def myThreads():
-    return render_template ('mine.html', posts = )
+    return render_template ('mine.html', posts = docs)
