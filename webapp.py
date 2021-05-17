@@ -69,3 +69,10 @@ def logout():
 @app.route('myThreads')
 def myThreads():
     return render_template ('mine.html', posts = docs)
+
+@github.tokengetter
+def get_github_oauth_token():
+    return session['github_token']
+
+if __name__ == '__main__':
+    app.run()
