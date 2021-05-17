@@ -38,6 +38,8 @@ client = pymongo.MongoClient(connection_string)
 db = client[db_name]
 collection = db['forumPosts']
 
+docs = []
+
 #context processors run before templates are rendered and add variable(s) to the template's context
 #context processors must return a dictionary 
 #this context processor adds the variable logged_in to the conext for all templates
@@ -51,7 +53,9 @@ def home():
 
 @app.route('/posts')
 def blog():
-  return render_template('posts.html')
+  for doc in collection.find():
+    docs = docs + doc
+  return render_template('posts.html', posts = docs)
 
 @app.route('/login')
 def login():
@@ -64,4 +68,4 @@ def logout():
 
 @app.route('myThreads')
 def myThreads():
-    return render_template ('
+    return render_template ('mine.html', posts = )
