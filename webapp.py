@@ -47,26 +47,26 @@ docs = []
 def inject_logged_in():
     return {"logged_in":('github_token' in session)}
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def home():
   return render_template('home.html')
 
-@app.route('/posts')
+@app.route('/posts', methods=['GET','POST'])
 def blog():
   for doc in collection.find():
     docs = docs + doc
   return render_template('posts.html', posts = docs)
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
   return github.authorize(callback=url_for('authorized', _external=True, _scheme='https'))
 
-@app.route('/logout')
+@app.route('/logout', methods=['GET','POST'])
 def logout():
   session.clear()
   return render_template('message.html', message='You sucessfully logged out')
 
-@app.route('myThreads')
+@app.route('myThreads', methods=['GET','POST'])
 def myThreads():
     return render_template ('mine.html', posts = docs)
 
@@ -74,7 +74,7 @@ def myThreads():
 def get_github_oauth_token():
     return session['github_token']
 
-@app.route('/login/authorized')
+@app.route('/login/authorized', methods=['POST'])
 def authorized():
     resp = github.authorized_response()
     if resp is None:
