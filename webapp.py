@@ -74,5 +74,24 @@ def myThreads():
 def get_github_oauth_token():
     return session['github_token']
 
+@app.route('/login/authorized')
+def authorized():
+    resp = github.authorized_response()
+    if resp is None:
+        session.clear()
+        message = 'Access denied: reason=' + request.args['error'] + ' error=' + request.args['error_description'] + ' full=' + pprint.pformat(request.args)      
+    else:
+        try:
+            session['github_token'] = (resp['access_token'], '') #save the token to prove that the user logged in
+            session['user_data']=github.get('user').data
+            #pprint.pprint(vars(github['/email']))
+            #pprint.pprint(vars(github['api/2/accounts/profile/']))
+            message='You were successfully logged in as ' + session['user_data']['login'] + '.'
+        except Exception as inst:
+            session.clear()
+            print(inst)
+            message='Unable to login, please try again.  '
+    return render_template('message.html', message=message)
+
 if __name__ == '__main__':
     app.run()
