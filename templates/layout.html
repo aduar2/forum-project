@@ -33,13 +33,25 @@
           <a class="navbar-brand" href="/">Home</a>
         </div>
 
+        
+        <li {% if active_page == "home" %} class="nav-item active"{% else %}class="nav-item"{% endif %}>
+            <a class="nav-link" href="/">Home</a>
+        
+        
     <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="/">About</a></li>
-            <li><a href="/posts">Posts</a></li>
-            <li><a href="/myThreads">My Threads</a></li>
-            <li><a href="/links">Links</a></li>
+            <li> {% if active page == "home" %} class="nav-item active"{% else %}class="nav-item"{% endif %}>
+              <a class="nav-link" href="/">About</a></li>
+            
+            <li {% if active_page == posts" %} class="nav-item active"{% else %}class="nav-item"{% endif %}>
+              <a class="nav-link" href="/posts">Posts</a>
+              
+            <li {% if active_page == "mine" %} class="nav-item active"{% else %}class="nav-item"{% endif %}>
+              <a class="nav-link" href="/myThreads">My Threads</a>
+                                                   
+            <li {% if active_page == "links" %} class="nav-item active"{% else %}class="nav-item"{% endif %}>
+              <a class="nav-link" href="/links">Links</a>
           </ul>
           
           <ul class="nav navbar-nav navbar-right">
