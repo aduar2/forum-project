@@ -70,6 +70,10 @@ def logout():
 def myThreads():
   return render_template ('mine.html', posts = docs)
 
+@app.route('/links', methods=['GET', 'POST'])
+def links():
+  return render_template('links.html')
+
 @github.tokengetter
 def get_github_oauth_token():
   return session['github_token']
