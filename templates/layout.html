@@ -36,10 +36,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li> {% if active_page == "home" %} class="nav-item active"{% else %}class="nav-item"{% endif %}>
+            <li {% if active_page == "home" %} class="nav-item active"{% else %}class="nav-item"{% endif %}>
               <a class="nav-link" href="/">About</a></li>
             
-            <li {% if active_page == posts" %} class="nav-item active"{% else %}class="nav-item"{% endif %}>
+            <li {% if active_page == "posts" %} class="nav-item active"{% else %}class="nav-item"{% endif %}>
               <a class="nav-link" href="/posts">Posts</a>
               
             <li {% if active_page == "mine" %} class="nav-item active"{% else %}class="nav-item"{% endif %}>
