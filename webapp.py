@@ -66,7 +66,7 @@ def logout():
   session.clear()
   return render_template('message.html', message='You sucessfully logged out')
 
-@app.route('myThreads', methods=['GET','POST'])
+@app.route('/myThreads', methods=['GET','POST'])
 def myThreads():
   return render_template ('mine.html', posts = docs)
 
