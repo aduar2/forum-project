@@ -26,13 +26,11 @@ how do you even make a button lol
 
 <a href='postPopUp" class="btn btn-success" role="button">Post</a>
 
+         
 {% if logged_in %}
-  
-
+  <a href="/postPopUp" class="btn btn-success" role="button">Post</a>
 {% else %}
-              <a href="/logout">Logout</a>
-              {% else %}
-              <a href="/login">Login</a>
-              {% endif %}
+  <a href="/logInPopUp" class="btn btn-success" role="button">Post</a>       
+{% endif %}
 
 {% endblock %}
