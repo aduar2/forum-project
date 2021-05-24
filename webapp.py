@@ -55,7 +55,7 @@ def home():
 def blog():
   docs = []
   for doc in collection.find():
-    docs = docs.append(doc)
+    docs.append(doc)
   return render_template('posts.html', posts = docs)
 
 @app.route('/login', methods=['GET', 'POST'])
