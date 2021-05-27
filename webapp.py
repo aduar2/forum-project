@@ -55,7 +55,7 @@ def blog():
   
   doc1User = collection[0]['user']
 
-  for doc in collection.find():
+  for doc in db.collection.find():
     docs.append(doc)
   return render_template('posts.html', posts = docs, user = doc1User, coll = collection)
 
