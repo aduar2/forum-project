@@ -52,12 +52,10 @@ def blog():
   collection = db['forumPosts']
   
   docs = []
-  
-  doc1User = collection[0]['user']
 
-  for doc in db.collection.find():
+  for doc in collection.find():
     docs.append(doc)
-  return render_template('posts.html', posts = docs, user = doc1User, coll = collection)
+  return render_template('posts.html', posts = docs)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
