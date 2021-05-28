@@ -70,7 +70,21 @@ def logout():
 
 @app.route('/myThreads', methods=['GET','POST'])
 def myThreads():
-  return render_template ('mine.html', posts = docs)
+  connection_string = os.environ["MONGO_CONNECTION_STRING"]
+  db_name = os.environ["MONGO_DBNAME"]
+  
+  client = pymongo.MongoClient(connection_string)
+  db = client[db_name]
+  collection = db['forumPosts']
+  
+  docs = []
+  
+  mine = { "user": user }
+  
+  for doc in collection.find(mine):
+    myDocs.append(doc)
+
+  return render_template ('mine.html', posts = myDocs)
 
 @app.route('/links', methods=['GET', 'POST'])
 def links():
