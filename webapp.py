@@ -95,7 +95,7 @@ def myThreads():
     #maybe an arrow? that would be super cute
     status = "null"
     
-  return render_template('mine.html', posts = myDocs, msg = message, stat = status)
+  return render_template('myThreads.html', posts = myDocs, msg = message, stat = status)
 
                             
 @app.route('/links', methods=['GET', 'POST'])
