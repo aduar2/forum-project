@@ -104,7 +104,7 @@ def links():
 
 @github.tokengetter
 def get_github_oauth_token():
-  return ['github_token'] in session
+  return session['github_token']
 
 @app.route('/login/authorized', methods=['POST'])
 def authorized():
