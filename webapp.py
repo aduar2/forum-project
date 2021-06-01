@@ -86,14 +86,14 @@ def myThreads():
     if len(myDocs) == 0: #is user hasn't posted yet
       message = "It seems you haven't posted any threads yet! You can post threads from the LINK TO PAGE page."
       status = "empty"
-    else if: #if user has posted
+    else: #if user has posted
       message = "You've reached the bottom! Time to post something new!"
       status = "full"
       
-    else: #if user is not logged in
-      message = "It seems like your'e not logged in! The login button can be found at the top right corner of any page"
-      #maybe an arrow? that would be super cute
-      status = "null"
+  else: #if user is not logged in
+    message = "It seems like your'e not logged in! The login button can be found at the top right corner of any page"
+    #maybe an arrow? that would be super cute
+    status = "null"
     
   return render_template('mine.html', posts = myDocs, msg = message, stat = status)
 
