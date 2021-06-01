@@ -6,18 +6,21 @@
 
 {% block content %}
 
+return render_template('myThreads.html', posts = myDocs, msg = message, stat = status)
+
+{% if stat == "null" %}
+{{msg}}
+
+{% else %}
+<script>
+for (i=0; i<=len(posts); i++) {
+  {{posts[i]}}
+}
+</script>
+
+{{msg}}
+{% endif %}
+
 posts with person's username. can sort by most recent or most replied :)
-
-if posts is empty and message is full, use message
-
-{% endif %}
-
-if posts is full, use posts
-
-{% endif %}
-
-if posts is empty and message is empty, say "you dont have any discussion yet" link = return to general discssion page
-
-{% endif %}
 
 {% endblock %}
