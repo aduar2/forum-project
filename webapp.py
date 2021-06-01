@@ -77,16 +77,27 @@ def myThreads():
   
   myDocs = []
   
-  if get_github_oauth_token() == ['github_token']:
+  if get_github_oauth_token() == ['github_token']: #to check if logged in
     mine = {"user":('github_token' in session)}
     
     for doc in collection.find(mine):
       myDocs.append(doc)
       
-    return render_template ('mine.html', posts = myDocs, message = " ")
-  else:
-    return render_template ('mine.html', posts = [], message = "Oops. It seems you still need to log in. The login button can be found in the top right of any page."
+    if len(myDocs) == 0: #is user hasn't posted yet
+      message = "It seems you haven't posted any threads yet! You can post threads from the LINK TO PAGE page."
+      status = "empty"
+    else: #if user has posted
+      message = "You've reached the bottom! Time to post something new!"
+      status = "full"
+      
+    else: #if user is not logged in
+      message = "It seems like your'e not logged in! The login button can be found at the top right corner of any page"
+      #maybe an arrow? that would be super cute
+      status = "null"
+    
+  return render_template('mine.html', posts = myDocs, msg = message, stat = status)
 
+                            
 @app.route('/links', methods=['GET', 'POST'])
 def links():
   return render_template('links.html')
