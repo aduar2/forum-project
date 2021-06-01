@@ -77,12 +77,15 @@ def myThreads():
   
   myDocs = []
   
-  mine = {"user":('github_token' in session)}
-  
-  for doc in collection.find(mine):
-    myDocs.append(doc)
-
-  return render_template ('mine.html', posts = myDocs)
+  if get_github_oauth_token() == ['github_token']:
+    mine = {"user":('github_token' in session)}
+    
+    for doc in collection.find(mine):
+      myDocs.append(doc)
+      
+    return render_template ('mine.html', posts = myDocs, message = " ")
+  else:
+    return render_template ('mine.html', posts = [], message = "Oops. It seems you still need to log in. The login button can be found in the top right of any page."
 
 @app.route('/links', methods=['GET', 'POST'])
 def links():
