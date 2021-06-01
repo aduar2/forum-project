@@ -57,7 +57,7 @@ def blog():
     docs.append(doc)
   return render_template('posts.html', posts = docs)
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['POST'])
 def login():
   return github.authorize(callback=url_for('authorized', _external=True, _scheme='https'))
 
@@ -91,7 +91,7 @@ def myThreads():
       status = "full"
       
   else: #if user is not logged in
-    message = "It seems like your'e not logged in! The login button can be found at the top right corner of any page"
+    message = "It seems like you're not logged in! The login button can be found at the top right corner of any page"
     #maybe an arrow? that would be super cute
     status = "null"
     
