@@ -75,7 +75,7 @@ def myThreads():
   db = client[db_name]
   collection = db['forumPosts']
   
-  docs = []
+  myDocs = []
   
   mine = {"user":('github_token' in session)}
   
