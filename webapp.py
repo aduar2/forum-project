@@ -86,7 +86,7 @@ def myThreads():
     if len(myDocs) == 0: #is user hasn't posted yet
       message = "It seems you haven't posted any threads yet! You can post threads from the LINK TO PAGE page."
       status = "empty"
-    else: #if user has posted
+    else if: #if user has posted
       message = "You've reached the bottom! Time to post something new!"
       status = "full"
       
