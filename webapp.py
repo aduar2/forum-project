@@ -77,7 +77,9 @@ def myThreads():
   
   docs = []
   
-  mine = { "user": session['github_token'] }
+  user = session['github_token']
+  
+  mine = { "user": user }
   
   for doc in collection.find(mine):
     myDocs.append(doc)
