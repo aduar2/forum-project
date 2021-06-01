@@ -77,7 +77,7 @@ def myThreads():
   
   myDocs = []
   
-  if ['github_token'] in session: #to check if logged in
+  if tuple(['github_token'] in session): #to check if logged in
     mine = {"user":('github_token' in session)}
     
     for doc in collection.find(mine):
